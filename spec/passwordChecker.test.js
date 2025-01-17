@@ -18,4 +18,14 @@ describe('PasswordValidator', () => {
             expect(PasswordValidator('23334455!')).toBe(true);
         });
     });
+
+    describe('number check', () => {
+        it('should return false if password does not contain a number', () => {
+            expect(PasswordValidator('asdfghjk!')).toBe(false);
+        });
+
+        it('should return true if password contains a number', () => {
+            expect(PasswordValidator('asdfghjk!1')).toBe(true);
+        });
+    });
 });
