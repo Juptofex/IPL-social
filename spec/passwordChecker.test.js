@@ -1,12 +1,14 @@
 const PasswordValidator = require('../passwordChecker');
 
 describe('PasswordValidator', () => {
-    it('should return false if password is less than 8 characters', () => {
-        expect(PasswordValidator('2333')).toBe(false);
-    });
+    describe('length check', () => {
+        it('should return false if password is less than 8 characters', () => {
+            expect(PasswordValidator('2333')).toBe(false);
+        });
 
-    it('should return true if password is 8 characters or more', () => {
-        expect(PasswordValidator('23334455_')).toBe(true);
+        it('should return true if password is 8 characters or more', () => {
+            expect(PasswordValidator('23334455_')).toBe(true);
+        });
     });
 
     describe('special charater check', () => { 
