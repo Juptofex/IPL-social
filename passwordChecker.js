@@ -3,7 +3,7 @@ function PasswordValidator(password) {
     const number = /[0-9]/;
     const forbiddenString = /ipl/i;
 
-    if (password.length < 8) {
+    if (minLengthValidator(password)) {
         return false;
     }
     if (!specialChar.test(password)) {
@@ -17,5 +17,11 @@ function PasswordValidator(password) {
     }
     return true;
 }
+
+function minLengthValidator(password) {
+    return password.length < 8;
+}
+
+
 
 module.exports = PasswordValidator;
