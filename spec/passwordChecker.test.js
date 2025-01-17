@@ -38,5 +38,8 @@ describe('PasswordValidator', () => {
             expect(PasswordValidator('asdfghjk!1IPL')).toBe(false);
         });
 
+        it('should return true if password does not contain the string "ipl"', () => {
+            expect(PasswordValidator('asdfghjk!1')).toBe(true);
+        });
     });
 });
