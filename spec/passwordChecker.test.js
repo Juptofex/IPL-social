@@ -24,5 +24,8 @@ describe('PasswordValidator', () => {
             expect(PasswordValidator('asdfghjk!')).toBe(false);
         });
 
+        it('should return true if password contains a number', () => {
+            expect(PasswordValidator('asdfghjk!1')).toBe(true);
+        });
     });
 });
