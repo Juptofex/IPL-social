@@ -9,7 +9,7 @@ function PasswordValidator(password) {
     if (specialCharValidator(password)) {
         return false;
     }
-    if (!number.test(password)) {
+    if (numberValidator(password)) {
         return false;
     }
     if (forbiddenString.test(password)) {
@@ -25,6 +25,11 @@ function minLengthValidator(password) {
 function specialCharValidator(password) {
     const specialChar = /[!@#$%^&*()\-_=+{}[\]|:;<>.,?\/]/;
     return !specialChar.test(password);
+}
+
+function numberValidator(password) {
+    const number = /[0-9]/;
+    return !number.test(password);
 }
 
 
