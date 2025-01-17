@@ -1,6 +1,7 @@
 function PasswordValidator(password) {
     const specialChar = /[!@#$%^&*()\-_=+{}[\]|:;<>.,?\/]/;
     const number = /[0-9]/;
+    const forbiddenString = /ipl/i;
 
     if (password.length < 8) {
         return false;
@@ -9,6 +10,9 @@ function PasswordValidator(password) {
         return false;
     }
     if (!number.test(password)) {
+        return false;
+    }
+    if (forbiddenString.test(password)) {
         return false;
     }
     return true;
