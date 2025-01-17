@@ -12,7 +12,7 @@ function PasswordValidator(password) {
     if (numberValidator(password)) {
         return false;
     }
-    if (forbiddenString.test(password)) {
+    if (forbiddenStringValidator(password)) {
         return false;
     }
     return true;
@@ -32,5 +32,9 @@ function numberValidator(password) {
     return !number.test(password);
 }
 
+function forbiddenStringValidator(password) {
+    const forbiddenString = /ipl/i;
+    return forbiddenString.test(password);
+}
 
 module.exports = PasswordValidator;
