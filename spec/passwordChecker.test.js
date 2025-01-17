@@ -6,7 +6,7 @@ describe('PasswordValidator', () => {
     });
 
     it('should return true if password is 8 characters or more', () => {
-        expect(PasswordValidator('23334455')).toBe(true);
+        expect(PasswordValidator('23334455_')).toBe(true);
     });
 
     describe('special charater check', () => { 
