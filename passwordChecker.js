@@ -3,19 +3,38 @@ function PasswordValidator(password) {
     const number = /[0-9]/;
     const forbiddenString = /ipl/i;
 
-    if (password.length < 8) {
+    if (minLengthValidator(password)) {
         return false;
     }
-    if (!specialChar.test(password)) {
+    if (specialCharValidator(password)) {
         return false;
     }
-    if (!number.test(password)) {
+    if (numberValidator(password)) {
         return false;
     }
-    if (forbiddenString.test(password)) {
+    if (forbiddenStringValidator(password)) {
         return false;
     }
     return true;
+}
+
+function minLengthValidator(password) {
+    return password.length < 8;
+}
+
+function specialCharValidator(password) {
+    const specialChar = /[!@#$%^&*()\-_=+{}[\]|:;<>.,?\/]/;
+    return !specialChar.test(password);
+}
+
+function numberValidator(password) {
+    const number = /[0-9]/;
+    return !number.test(password);
+}
+
+function forbiddenStringValidator(password) {
+    const forbiddenString = /ipl/i;
+    return forbiddenString.test(password);
 }
 
 module.exports = PasswordValidator;
