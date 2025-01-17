@@ -28,4 +28,15 @@ describe('PasswordValidator', () => {
             expect(PasswordValidator('asdfghjk!1')).toBe(true);
         });
     });
+
+    describe('forbidden string check', () => {
+        it('should return false if password contains the string "ipl"', () => {
+            expect(PasswordValidator('asdfghjk!1ipl')).toBe(false);
+        });
+
+        it('should return false if password contains the string "IPL"', () => {
+            expect(PasswordValidator('asdfghjk!1IPL')).toBe(false);
+        });
+
+    });
 });
