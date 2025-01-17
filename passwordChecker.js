@@ -6,7 +6,7 @@ function PasswordValidator(password) {
     if (minLengthValidator(password)) {
         return false;
     }
-    if (!specialChar.test(password)) {
+    if (specialCharValidator(password)) {
         return false;
     }
     if (!number.test(password)) {
@@ -22,6 +22,10 @@ function minLengthValidator(password) {
     return password.length < 8;
 }
 
+function specialCharValidator(password) {
+    const specialChar = /[!@#$%^&*()\-_=+{}[\]|:;<>.,?\/]/;
+    return !specialChar.test(password);
+}
 
 
 module.exports = PasswordValidator;
